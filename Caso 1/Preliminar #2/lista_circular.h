@@ -80,6 +80,4 @@ void imprimirLista() {
   }
 
 
-//void buscar(string palabraBusqueda); //Se busca un valor en el arreglo basándose en una palabra clave
-
-//Nodo* reordenar(Nodo* cola); //Se reordena arreglo de forma ascendiente
+//void buscar(string palabraBusqueda); //Se busca un valor en la lista basándose en una palabra clave
