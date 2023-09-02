@@ -12,19 +12,19 @@ using namespace std;
 
 //void top5Noticias(); //Muestra las cinco noticias más relevantes
 //ocupa el método:
-//imprimir(Node* cabeza, int numRelevancia)
+//imprimir(Node* cursor, int numRelevancia)
 
 //void noticias(); //Muestra todas las noticias almacenadas
 //ocupa el método:
-//imprimir(Node* cabeza, int numRelevancia)
+//imprimir(Node* cursor, int numRelevancia)
 
 //void mostrarPatron(string listaPalabrasClave); //Mostrar noticias que contegan palabras de una lista clave
-//ocupa los métodos: buscar(string palabraBusqueda), imprimir(Node* cabeza)
+//ocupa los métodos: buscar(string palabraBusqueda), imprimir(Node* cursor)
 
 //void eliminarPatron(string listaPalabrasClave); //Borrar noticias que contegan palabras de una lista clave
 //ocupa los métodos:
 //buscar(string palabraBusqueda)
-//imprimir(Node* cabeza)
+//imprimir(Node* cursor)
 
 //void reubicarNoticia(string nombreNoticia, int Positivo_o_Negativo); //Subir o bajar una noticia de relevancia
 //ocupa los métodos:

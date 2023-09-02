@@ -13,16 +13,30 @@ int main(int argc, char *argv[])
 {
     imprimirLista();
 
-    insertar(1, "hola");
-    insertar(2, "mi");
-    insertar(3, "nombre");
-    insertar(4, "es");
-    insertar(5, "Carmen");
+    insertar(1, "Asalto a las 10pm");
+    insertar(2, "Lluvia fuerte en San José");
+    insertar(3, "Luz se fue en ciertas zonas");
+    insertar(4, "Concierto en Parque Viva");
+    insertar(5, "Avanze científico en vacunas");
 
     imprimirLista();
 
-    remover(3);
+    avanzar();
+    
+    imprimirLista();
+
+    avanzar();
 
     imprimirLista();
+
+    remover();
+
+    imprimirLista();
+
+    remover();
+
+    imprimirLista();
+
+    //buscar("en");
 
 };

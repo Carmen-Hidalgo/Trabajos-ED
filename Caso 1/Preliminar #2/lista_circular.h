@@ -8,76 +8,95 @@
 
 using namespace std;
 
-struct NodoNoticia {
-  int relevancia;
-  string noticia;
-  NodoNoticia *next;
+struct NodoNoticia { //La estructura para los nodos. Se tiene dos atributos
+  int relevancia; //Número de relevancia
+  string noticia; //Nombre de la noticia
+  NodoNoticia *next;//Se crea un nodo para apuntar al siguiente elemento
 
 };
 
-NodoNoticia *cabeza = nullptr;
+NodoNoticia *cursor = NULL; //Se crea el cursor
 
-void insertar(int numRelevancia, string nomNoticia) {
-  NodoNoticia *newNodo = new NodoNoticia;
+bool vacia(){ //Muestra si la lista está vacía
+  return cursor == NULL;
+};
+
+int cabeza(){ //El elemento señalado es el que está después
+
+  return cursor->next->relevancia;
+
+};
+
+int cola (){ //El elemento señalado es el actual
+
+  return cursor->relevancia;
+
+};
+
+void avanzar(){ //Avanza el cursor al siguiente elemento
+
+  cursor = cursor->next;
+
+};
+
+void insertar(int numRelevancia, string nomNoticia) { //Se inserta un elemento después del cursor
+  
+  NodoNoticia *newNodo = new NodoNoticia; //Se crea un nuevo nodo
   newNodo->relevancia = numRelevancia;
   newNodo->noticia = nomNoticia;
-  newNodo->next = nullptr;
 
-  if (cabeza == nullptr) {
-    cabeza = newNodo;
-    newNodo->next = cabeza;
+  if (cursor == NULL) {
+    newNodo->next = newNodo;
+    cursor = newNodo;
   } else {
-    NodoNoticia * actual = cabeza;
-    while (actual->next != cabeza) {
-      actual = actual->next;
-    }
-    actual->next = newNodo;
-    newNodo->next = cabeza;
+
+    newNodo->next = cursor->next;
+    cursor->next = newNodo;   
   }
 }
 
-void imprimirLista() {
-  if (cabeza == nullptr) {
-    cout << "La lista está vacía" << endl <<" "<< endl;
-    return;
+void remover() { //Se borra el elemento que se encuentra después del cursor
+    
+    NodoNoticia *antiguo = cursor->next;
+    
+    if (cursor == NULL) {
+      return;
+    };
+
+    if(antiguo == cursor)
+      cursor =NULL;
+    else
+      cursor->next = antiguo->next;
+    
+    delete antiguo;
+}
+
+void imprimirLista() { //Se imprime toda la lista
+  if ( cursor == NULL) {
+   cout << "La lista está vacía" << endl <<" "<< endl;
+   return;
   }
 
-  NodoNoticia *actual = cabeza;
+  NodoNoticia *actual = cursor;
 
   cout << "-----NOTICIAS-----"<< endl<< " "<< endl; 
 
   do {
-    cout << actual->relevancia << ", " << actual->noticia<<endl;
+    cout << actual->next->relevancia << ", " << actual->next->noticia<<endl;
     actual = actual->next;
-  } while (actual != cabeza);
+  } while (actual != cursor);
 
   cout << endl;
-}
+};
 
-  void remover(int numeroRelevancia) { //Se borra el elemento
-    if (cabeza == nullptr) {
-      return;
-    }
+/*void buscar(string palabraBusqueda){ //Se busca un valor en la lista basándose en una palabra clave
 
-    NodoNoticia* temp = cabeza;
-    NodoNoticia* previo = nullptr;
+  NodoNoticia *temp = cursor;
+  do {
+    cout << temp->next->relevancia << ", " << temp->next->noticia<<endl;
+    temp = temp->next;
+  } while (temp->noticia == palabraBusqueda);
 
-    while (temp->relevancia != numeroRelevancia) {
-      previo = temp;
-      temp = temp->next;
-      if (temp == cabeza) {
-        return;
-      }
-    }
+  cout<<endl;
 
-    if (previo == nullptr) {
-      cabeza = cabeza->next;
-    } else {
-      previo->next = temp->next;
-    }
-
-    delete temp;
-  }
-
-
-//void buscar(string palabraBusqueda); //Se busca un valor en la lista basándose en una palabra clave
+};*/
