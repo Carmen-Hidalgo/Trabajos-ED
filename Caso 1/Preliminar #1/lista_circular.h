@@ -17,7 +17,7 @@ string cola(); //Retorna elemento que está después del nodo
 
 void avanzar(); //Avanzar en la lista
 
-void insertar(string nombreNoticia, int numeroRelevancia); //Agregar un elemento
+void insertar(string nombrenombre, int numerodato); //Agregar un elemento
 
 void remover(); //Se borra el elemento
 
@@ -25,4 +25,4 @@ void buscar(string palabraBusqueda); //Se busca un valor en el arreglo basándos
 
 Node* reordenar(Node* cola); //Se reordena arreglo de forma ascendiente
 
-void imprimir(Node* cabeza; int numRelevancia); //Se imprimen los valores del arreglo
+void imprimir(Node* cabeza; int numdato); //Se imprimen los valores del arreglo

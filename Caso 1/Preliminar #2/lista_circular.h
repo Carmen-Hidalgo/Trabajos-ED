@@ -8,14 +8,14 @@
 
 using namespace std;
 
-struct NodoNoticia { //La estructura para los nodos. Se tiene dos atributos
-  int relevancia; //Número de relevancia
-  string noticia; //Nombre de la noticia
-  NodoNoticia *next;//Se crea un nodo para apuntar al siguiente elemento
+struct Nodo { //La estructura para los nodos. Se tiene dos atributos
+  int dato; //Número de dato
+  string nombre; //Nombre de la nombre
+  Nodo *next; //Se crea un nodo para apuntar al siguiente elemento
 
 };
 
-NodoNoticia *cursor = NULL; //Se crea el cursor
+Nodo *cursor = NULL; //Se crea el cursor
 
 bool vacia(){ //Muestra si la lista está vacía
   return cursor == NULL;
@@ -23,13 +23,13 @@ bool vacia(){ //Muestra si la lista está vacía
 
 int cabeza(){ //El elemento señalado es el que está después
 
-  return cursor->next->relevancia;
+  return cursor->next->dato;
 
 };
 
 int cola (){ //El elemento señalado es el actual
 
-  return cursor->relevancia;
+  return cursor->dato;
 
 };
 
@@ -39,11 +39,11 @@ void avanzar(){ //Avanza el cursor al siguiente elemento
 
 };
 
-void insertar(int numRelevancia, string nomNoticia) { //Se inserta un elemento después del cursor
+void insertar(int numdato, string nomnombre) { //Se inserta un elemento después del cursor
   
-  NodoNoticia *newNodo = new NodoNoticia; //Se crea un nuevo nodo
-  newNodo->relevancia = numRelevancia;
-  newNodo->noticia = nomNoticia;
+  Nodo *newNodo = new Nodo; //Se crea un nuevo nodo
+  newNodo->dato = numdato;
+  newNodo->nombre = nomnombre;
 
   if (cursor == NULL) {
     newNodo->next = newNodo;
@@ -53,23 +53,35 @@ void insertar(int numRelevancia, string nomNoticia) { //Se inserta un elemento d
     newNodo->next = cursor->next;
     cursor->next = newNodo;   
   }
-}
+};
 
-void remover() { //Se borra el elemento que se encuentra después del cursor
-    
-    NodoNoticia *antiguo = cursor->next;
+Nodo* remover() { //Se borra el elemento que se encuentra después del cursor
+
+    Nodo *antiguo = cursor->next;
+    Nodo *elementoEliminado = new Nodo;
+    elementoEliminado->dato = antiguo->dato;
+    elementoEliminado->nombre = antiguo->nombre;
     
     if (cursor == NULL) {
-      return;
+      return elementoEliminado = NULL;
+
     };
 
-    if(antiguo == cursor)
-      cursor =NULL;
+    if(antiguo == cursor){
+      cursor = NULL;
+      return elementoEliminado = NULL;
+    }
+
+
     else
       cursor->next = antiguo->next;
     
     delete antiguo;
-}
+
+    cout<<"Elemento eliminado: "<< elementoEliminado->dato << ", " << elementoEliminado->nombre<<endl<<" "<< endl;
+
+    return elementoEliminado;
+};
 
 void imprimirLista() { //Se imprime toda la lista
   if ( cursor == NULL) {
@@ -77,26 +89,33 @@ void imprimirLista() { //Se imprime toda la lista
    return;
   }
 
-  NodoNoticia *actual = cursor;
+  Nodo *actual = cursor;
 
   cout << "-----NOTICIAS-----"<< endl<< " "<< endl; 
 
   do {
-    cout << actual->next->relevancia << ", " << actual->next->noticia<<endl;
+    cout << actual->next->dato << ", " << actual->next->nombre<<endl;
     actual = actual->next;
   } while (actual != cursor);
 
   cout << endl;
 };
 
-/*void buscar(string palabraBusqueda){ //Se busca un valor en la lista basándose en una palabra clave
+int buscar(string palabraBusqueda){ //Se busca un valor en la lista basándose en una palabra clave
 
-  NodoNoticia *temp = cursor;
+  Nodo *temp = cursor;
   do {
-    cout << temp->next->relevancia << ", " << temp->next->noticia<<endl;
+    cout<< "holaaa"<<endl;
+    cout << temp->next->dato << ", " << temp->next->nombre<<endl;
     temp = temp->next;
-  } while (temp->noticia == palabraBusqueda);
+  } while (temp->nombre == palabraBusqueda);
+
+  while(temp->nombre == palabraBusqueda){
+    cout<< "holaaa"<<endl;
+    cout << temp->next->dato << ", " << temp->next->nombre<<endl;
+    temp = temp->next;
+  }
 
   cout<<endl;
 
-};*/
+};

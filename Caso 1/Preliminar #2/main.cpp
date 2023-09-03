@@ -17,7 +17,8 @@ int main(int argc, char *argv[])
     insertar(2, "Lluvia fuerte en San José");
     insertar(3, "Luz se fue en ciertas zonas");
     insertar(4, "Concierto en Parque Viva");
-    insertar(5, "Avanze científico en vacunas");
+    insertar(5, "Avance científico en vacunas");
+    insertar(6, "en");
 
     imprimirLista();
 
@@ -37,6 +38,6 @@ int main(int argc, char *argv[])
 
     imprimirLista();
 
-    //buscar("en");
+    buscar("en");
 
 };
