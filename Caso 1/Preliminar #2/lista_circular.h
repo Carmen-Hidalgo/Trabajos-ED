@@ -1,10 +1,12 @@
 /*
     Nombre: Carmen Hidalgo Paz
-    Fecha: 1/9/23
-    descripción:  Métodos TAD de la lista circular que se van a implementar
+    Fecha: 3/9/23
+    descripción: Métodos TAD de la lista circular que se van a implementar
 */
 
 #include <iostream>
+#include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -33,23 +35,26 @@ int cola (){ //El elemento señalado es el actual
 
 };
 
-void avanzar(){ //Avanza el cursor al siguiente elemento
+void avanzar(int veces){ //Avanza el cursor al elemento que se solicite
 
+  for (int i = 0; i < veces; i++){
+  
   cursor = cursor->next;
+
+  };
 
 };
 
-void insertar(int numdato, string nomnombre) { //Se inserta un elemento después del cursor
+void insertar(int numdato, string nom) { //Se inserta un elemento después del cursor
   
   Nodo *newNodo = new Nodo; //Se crea un nuevo nodo
   newNodo->dato = numdato;
-  newNodo->nombre = nomnombre;
+  newNodo->nombre = nom;
 
   if (cursor == NULL) {
     newNodo->next = newNodo;
     cursor = newNodo;
   } else {
-
     newNodo->next = cursor->next;
     cursor->next = newNodo;   
   }
@@ -84,6 +89,7 @@ Nodo* remover() { //Se borra el elemento que se encuentra después del cursor
 };
 
 void imprimirLista() { //Se imprime toda la lista
+
   if ( cursor == NULL) {
    cout << "La lista está vacía" << endl <<" "<< endl;
    return;
@@ -104,18 +110,30 @@ void imprimirLista() { //Se imprime toda la lista
 int buscar(string palabraBusqueda){ //Se busca un valor en la lista basándose en una palabra clave
 
   Nodo *temp = cursor;
-  do {
-    cout<< "holaaa"<<endl;
-    cout << temp->next->dato << ", " << temp->next->nombre<<endl;
-    temp = temp->next;
-  } while (temp->nombre == palabraBusqueda);
+  int positionReciente = 0;
 
-  while(temp->nombre == palabraBusqueda){
-    cout<< "holaaa"<<endl;
-    cout << temp->next->dato << ", " << temp->next->nombre<<endl;
-    temp = temp->next;
-  }
+  cout <<endl <<"-----NOTICIAS ENCONTRADAS EN LA BÚSQUEDA-----"<< endl<< " "<< endl;
+ 
+   do {
+    
+    if (cursor != NULL){
 
-  cout<<endl;
+      bool esta = temp->nombre.find(palabraBusqueda) != string::npos;
+
+        if(esta){
+        
+          cout<< temp->dato << ", " << temp->nombre <<endl;
+
+        }
+
+      temp = temp->next;
+      positionReciente++;
+    }
+
+  } while (temp != cursor);
+
+  cout<<endl<<"position de ultimo elemento de la busqueda: "<<positionReciente<<endl;
+
+  return positionReciente;
 
 };

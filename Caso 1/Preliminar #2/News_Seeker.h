@@ -1,7 +1,7 @@
 /*
     Nombre: Carmen Hidalgo Paz
-    Fecha: 1/9/23
-    description:   Métodos para el Caso #1, The News Seeker
+    Fecha: 3/9/23
+    description: Métodos para el Caso #1, The News Seeker
 */
 
 #include <iostream>
@@ -10,13 +10,24 @@
 using namespace std;
 
 
-//void top5nombres(); //Muestra las cinco nombres más relevantes
-//ocupa el método:
-//imprimir(Node* cursor, int numdato)
+void top5Noticias(){ //Muestra las cinco nombres más relevantes
 
-//void nombres(); //Muestra todas las nombres almacenadas
-//ocupa el método:
-//imprimir(Node* cursor, int numdato)
+    Nodo *actual = cursor;
+
+    cout << "-----TOP 5 NOTICIAS-----"<< endl<< " "<< endl;
+    
+    for(int i = 0; i < 5; i++){
+
+        cout << actual->next->dato << ", " << actual->next->nombre<<endl;
+        actual = actual->next;
+
+    };
+};
+
+void nombresNoticias(){ //Muestra todas las nombres almacenadas
+
+    imprimirLista();
+};
 
 //void mostrarPatron(string listaPalabrasClave); //Mostrar nombres que contegan palabras de una lista clave
 //ocupa los métodos: buscar(string palabraBusqueda), imprimir(Node* cursor)

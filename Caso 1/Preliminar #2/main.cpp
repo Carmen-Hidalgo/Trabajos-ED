@@ -1,28 +1,37 @@
 /*
     Nombre: Carmen Hidalgo Paz
-    Fecha: 1/9/23
+    Fecha: 3/9/23
     descripción: Pruebas
 */
 
-#include "lista_circular.h"
+#include "News_Seeker.h"
 
 using namespace std;
 
 
 int main(int argc, char *argv[])
 {
-    imprimirLista();
 
-    insertar(1, "Asalto a las 10pm");
-    insertar(2, "Lluvia fuerte en San José");
-    insertar(3, "Luz se fue en ciertas zonas");
-    insertar(4, "Concierto en Parque Viva");
-    insertar(5, "Avance científico en vacunas");
-    insertar(6, "en");
+    nombresNoticias();
+    buscar("en");
 
-    imprimirLista();
+    insertar(10, "Asalto a las 10pm");
+    insertar(9, "Lluvia fuerte en San José");
+    insertar(8, "Luz se fue en ciertas zonas");
+    insertar(7, "Concierto en Parque Viva");
+    insertar(6, "Avance científico en vacunas");
+    insertar(5, "Estudiantes ganan concurso en el extranjero");
+    insertar(4, "Accidente en la carretera");
+    insertar(3, "Nueva bacteria encontrada");
+    insertar(2, "Se cancela un evento deportivo");
+    insertar(1, "Falta de agua en cierta zona");
 
-    avanzar();
+    nombresNoticias();
+
+    top5Noticias();
+
+ 
+/*  avanzar(9);
     
     imprimirLista();
 
@@ -37,7 +46,12 @@ int main(int argc, char *argv[])
     remover();
 
     imprimirLista();
+*/
 
     buscar("en");
+
+    buscar("Asalto");
+
+    buscar("objeto");   
 
 };
