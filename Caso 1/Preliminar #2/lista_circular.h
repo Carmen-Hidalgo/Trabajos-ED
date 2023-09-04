@@ -14,6 +14,7 @@ struct Nodo { //La estructura para los nodos. Se tiene dos atributos
   int dato; //Número de dato
   string nombre; //Nombre de la nombre
   Nodo *next; //Se crea un nodo para apuntar al siguiente elemento
+  Nodo *prev; //Se crea un nodo para apuntar al elemento previo
 
 };
 
@@ -60,10 +61,11 @@ void insertar(int numdato, string nom) { //Se inserta un elemento después del c
   }
 };
 
+Nodo *elementoEliminado = new Nodo;
+
 Nodo* remover() { //Se borra el elemento que se encuentra después del cursor
 
     Nodo *antiguo = cursor->next;
-    Nodo *elementoEliminado = new Nodo;
     elementoEliminado->dato = antiguo->dato;
     elementoEliminado->nombre = antiguo->nombre;
     
@@ -83,21 +85,19 @@ Nodo* remover() { //Se borra el elemento que se encuentra después del cursor
     
     delete antiguo;
 
-    cout<<"Elemento eliminado: "<< elementoEliminado->dato << ", " << elementoEliminado->nombre<<endl<<" "<< endl;
-
     return elementoEliminado;
 };
 
 void imprimirLista() { //Se imprime toda la lista
 
   if ( cursor == NULL) {
-   cout << "La lista está vacía" << endl <<" "<< endl;
+   cout <<endl<< "La lista está vacía" << endl <<" "<< endl;
    return;
   }
 
   Nodo *actual = cursor;
 
-  cout << "-----NOTICIAS-----"<< endl<< " "<< endl; 
+  cout <<endl<< "-----NOTICIAS-----"<< endl<< " "<< endl; 
 
   do {
     cout << actual->next->dato << ", " << actual->next->nombre<<endl;
@@ -111,29 +111,26 @@ int buscar(string palabraBusqueda){ //Se busca un valor en la lista basándose e
 
   Nodo *temp = cursor;
   int positionReciente = 0;
-
-  cout <<endl <<"-----NOTICIAS ENCONTRADAS EN LA BÚSQUEDA-----"<< endl<< " "<< endl;
  
    do {
     
     if (cursor != NULL){
 
-      bool esta = temp->nombre.find(palabraBusqueda) != string::npos;
+      bool esta = temp->nombre.find(palabraBusqueda) != string::npos; 
+      //Busca si la palabra se encuentra en el string antes del final de esta
 
         if(esta){
         
-          cout<< temp->dato << ", " << temp->nombre <<endl;
+          cout<<"Elemento encontrado: "<<temp->dato << ", " << temp->nombre <<endl;
+          positionReciente = temp->dato;
 
         }
 
       temp = temp->next;
-      positionReciente++;
     }
 
   } while (temp != cursor);
 
-  cout<<endl<<"position de ultimo elemento de la busqueda: "<<positionReciente<<endl;
-
-  return positionReciente;
+  return positionReciente; //La posición del último elemento de la lista de búsqueda
 
 };

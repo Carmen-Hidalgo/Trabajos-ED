@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 {
 
     nombresNoticias();
-    buscar("en");
 
     insertar(10, "Asalto a las 10pm");
     insertar(9, "Lluvia fuerte en San José");
@@ -29,29 +28,19 @@ int main(int argc, char *argv[])
     nombresNoticias();
 
     top5Noticias();
-
- 
-/*  avanzar(9);
     
-    imprimirLista();
+    mostrarPatron("Avance,en,cierta");
 
-    avanzar();
+    eliminarPatron("Luz");
 
-    imprimirLista();
+    nombresNoticias();
+    
+    reubicarNombre("Luz se fue en ciertas zonas", -2);
 
-    remover();
+    nombresNoticias();
 
-    imprimirLista();
+    reubicarNombre("Accidente en la carretera", 8);
 
-    remover();
-
-    imprimirLista();
-*/
-
-    buscar("en");
-
-    buscar("Asalto");
-
-    buscar("objeto");   
+    nombresNoticias();
 
 };

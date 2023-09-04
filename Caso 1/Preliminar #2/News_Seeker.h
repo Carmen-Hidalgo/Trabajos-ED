@@ -5,6 +5,7 @@
 */
 
 #include <iostream>
+#include <sstream>
 #include "lista_circular.h"
 
 using namespace std;
@@ -29,17 +30,73 @@ void nombresNoticias(){ //Muestra todas las nombres almacenadas
     imprimirLista();
 };
 
-//void mostrarPatron(string listaPalabrasClave); //Mostrar nombres que contegan palabras de una lista clave
-//ocupa los métodos: buscar(string palabraBusqueda), imprimir(Node* cursor)
+void mostrarPatron(string listaPalabrasClave){ //Mostrar nombres que contegan palabras de una lista clave
 
-//void eliminarPatron(string listaPalabrasClave); //Borrar nombres que contegan palabras de una lista clave
-//ocupa los métodos:
-//buscar(string palabraBusqueda)
-//imprimir(Node* cursor)
+    string palabrasDivididas, palabra;
 
-//void reubicarnombre(string nombrenombre, int Positivo_o_Negativo); //Subir o bajar una nombre de dato
-//ocupa los métodos:
-//buscar(string palabraBusqueda)
-//remover(string nombrenombre, int posicionAntigua)
-//insertar(string nombrenombre, int posicionNueva)
+    palabrasDivididas = listaPalabrasClave;
+
+    stringstream obj_ss(palabrasDivididas);
+
+    cout <<endl <<"-----NOTICIAS ENCONTRADAS EN LA BÚSQUEDA-----"<< endl<< " "<< endl;
+
+    while(getline(obj_ss, palabra, ',')){
+
+        buscar(palabra);
+
+    };
+
+};
+
+void eliminarPatron(string listaPalabrasClave){ //Borrar nombres que contegan palabras de una lista clave
+
+    Nodo *tmp = cursor;
+    string palabrasDivididas, palabra;
+    palabrasDivididas = listaPalabrasClave;
+
+    stringstream obj_ss(palabrasDivididas);
+
+    int index = 0;
+
+    cout <<endl <<"-----NOTICIAS QUE SE DESEAN BORRAR-----"<< endl<< " "<< endl;
+
+    while(getline(obj_ss, palabra, ',')){
+
+        buscar(palabra);
+        index++;
+        tmp = tmp->next;
+    };
+
+    for(int i = 0; i < index; i++){
+
+        if(tmp->nombre.find(palabra)){
+        
+        remover();
+
+        };
+    };    
+
+};
+
+void reubicarNombre(string nombre, int Positivo_o_Negativo){ //Subir o bajar una nombre de dato
+
+    int position = buscar(nombre)-1;
+    avanzar(position);
+    remover();
+
+    if(Positivo_o_Negativo >= 0){
+        
+        avanzar(position + Positivo_o_Negativo);
+        insertar(elementoEliminado->dato, elementoEliminado->nombre);
+        
+    };
+
+    if(Positivo_o_Negativo < 0){
+
+        avanzar(Positivo_o_Negativo *-1);
+        insertar(elementoEliminado->dato, elementoEliminado->nombre);
+
+    };
+
+};
 
