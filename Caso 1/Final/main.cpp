@@ -25,22 +25,6 @@ int main(int argc, char *argv[])
     insertar(9, "Se cancela un evento deportivo", "2023-06-06");
     insertar(10, "Falta de agua en cierta zona", "2023-06-06");*/
 
-    //top5Noticias();
-    
-    //mostrarPatron("Avance,en,cierta", "2023-06-06");
-
-    //eliminarPatron("Luz");
-
-    //nombresNoticias();
-    
-    //reubicarNombre("Luz se fue en ciertas zonas", -2);
-
-    //nombresNoticias();
-
-    //reubicarNombre("Accidente en la carretera", 8);
-
-    //nombresNoticias();
-
     int respuesta;
     string listaPalabrasClave;
     string fechaBusqueda;

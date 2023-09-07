@@ -133,7 +133,7 @@ public:
     };
 };
 
-int main(void)
+/*int main(void)
 {
     Newsapi newsapi;
 
@@ -141,4 +141,4 @@ int main(void)
     cout << allrecords.at(0)->getTitle() << endl;
 
     return 0;
-}
+}*/
