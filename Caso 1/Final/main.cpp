@@ -14,7 +14,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-    insertar(1, "Asalto a las 10pm", "2023-02-03");
+    /*insertar(1, "Asalto a las 10pm", "2023-02-03");
     insertar(2, "Lluvia fuerte en San José", "2020-18-12");
     insertar(3, "Luz se fue en ciertas zonas", "2021-04-10");
     insertar(4, "Concierto en Parque Viva", "2023-07-31");
@@ -23,9 +23,7 @@ int main(int argc, char *argv[])
     insertar(7, "Accidente en la carretera", "2023-06-06");
     insertar(8, "Nueva bacteria encontrada", "2023-06-06");
     insertar(9, "Se cancela un evento deportivo", "2023-06-06");
-    insertar(10, "Falta de agua en cierta zona", "2023-06-06");
-
-    //nombresNoticias();
+    insertar(10, "Falta de agua en cierta zona", "2023-06-06");*/
 
     //top5Noticias();
     
@@ -47,6 +45,7 @@ int main(int argc, char *argv[])
     string listaPalabrasClave;
     string fechaBusqueda;
     string nombreNoticia;
+    string fecha;
     int position;
     
     do
@@ -59,7 +58,7 @@ int main(int argc, char *argv[])
         cout << " " << endl;
         cout << "2. Ver las Top 5 Noticias" << endl;
         cout << " " << endl;
-        cout << "3. Buscar noticias con palabra(s) clave" << endl;
+        cout << "3. Buscar noticias con palabra(s) clave y con fecha específica" << endl;
         cout << " " << endl;
         cout << "4. ELiminar noticias con palabra(s) clave" << endl;
         cout << " " << endl;
@@ -94,7 +93,7 @@ int main(int argc, char *argv[])
 
             case 3:
                 cout << " " << endl;
-                cout << "3. Buscar noticias con palabra(s) clave" << endl;
+                cout << "3. Buscar noticias con palabra(s) clave y con fecha específica" << endl;
                 cout << " " << endl;
                 sleep(1);
                 cout << "Ingrese la(s) palabra(s) clave (Separadas por una coma): " << endl;
@@ -119,12 +118,15 @@ int main(int argc, char *argv[])
                 cout << " " << endl;
                 cout << "5. Reubicar lugar de Noticia" << endl;
                 sleep(1);
-                cout << "Ingrese nombre completo de noticia que quiere reubicar: " << endl;
+                cout << "Ingrese el nombre completo de noticia que quiere reubicar: " << endl;
                 cin.ignore();
                 getline(cin, nombreNoticia);
+                cout << "Ingrese la fecha de la noticia que quiere reubicar (Con este formato: AAAA-MM-DD): " << endl;
+                cin.ignore();
+                getline(cin, fecha);
                 cout << "Ingrese número de puestos que desea mover la noticia (coloque el signo + si desea subirla y - si desea bajarla antes del número): " << endl;
                 cin >> position;
-                reubicarNombre(nombreNoticia, position);
+                reubicarNombre(nombreNoticia, fecha, position);
 
                 break;
                 case 6:

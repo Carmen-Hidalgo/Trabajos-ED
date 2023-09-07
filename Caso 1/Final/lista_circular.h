@@ -36,9 +36,9 @@ int cola (){ //El elemento señalado es el actual
 
 };
 
-void avanzar(int veces){ //Avanza el cursor al elemento que se solicite
+void avanzar(int pos){ //Avanza el cursor las veces que se le solicite
 
-  for (int i = 0; i < veces; i++){
+  for (int i = 0; i <= pos-3; i++){
   
   cursor = cursor->next;
 
@@ -46,7 +46,7 @@ void avanzar(int veces){ //Avanza el cursor al elemento que se solicite
 
 };
 
-void insertar(int numdato, string nom, string date) { //Se inserta un elemento después del cursor
+void insertar(int numdato, string nom, string date) { //Se inserta un elemento al final de la lista
   
   Nodo *newNodo = new Nodo; //Se crea un nuevo nodo
   newNodo->dato = numdato;

@@ -69,34 +69,42 @@ void eliminarPatron(string listaPalabrasClave){ //Borrar nombres que contegan pa
 };
 
 //ARREGLAR
-void reubicarNombre(string nombre, int Positivo_o_Negativo){ //Subir o bajar una nombre de dato
+void reubicarNombre(string nombre, string date, int Positivo_o_Negativo){ //Subir o bajar una nombre de dato
 
-    Nodo *temp = new Nodo;
-    temp->dato = cursor->dato;
+    Nodo *temp = cursor;
     int position;
 
-    if(Positivo_o_Negativo >= 0){
+    if(Positivo_o_Negativo > 0){
 
-        position = buscar(nombre, cursor->fecha)-1;
+        revLista();
+        nombresNoticias();
+        position = buscar(nombre, date);
         avanzar(position);
-        remover();        
-        avanzar(Positivo_o_Negativo - 1);
+        nombresNoticias();
+        remover();
+        nombresNoticias();        
+        avanzar(Positivo_o_Negativo +1);
         insertar(elementoEliminado->dato, elementoEliminado->nombre, elementoEliminado->fecha);
-        avanzar(temp->dato);
+        nombresNoticias();
+        revLista();
+        nombresNoticias();
+        avanzar(1);
         nombresNoticias();
         
     };
 
     if(Positivo_o_Negativo < 0){
 
-        revLista();
-        position = buscar(nombre, cursor->fecha)-1;
-        avanzar(position);
-        remover();        
-        avanzar(Positivo_o_Negativo -1);
+        position = buscar(nombre, date);
+        avanzar(position); //avanzar(position - 2)
+        nombresNoticias();
+        remover();
+        nombresNoticias();        
+        avanzar(1 + Positivo_o_Negativo*-1); //avanzar(position + Positivo_o_Negativo*-1)
+        nombresNoticias();
         insertar(elementoEliminado->dato, elementoEliminado->nombre, elementoEliminado->fecha);
-        revLista();
-        avanzar(temp->dato);
+        nombresNoticias();
+        avanzar(1);
         nombresNoticias();
         
 
